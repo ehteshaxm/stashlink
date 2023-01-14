@@ -24,8 +24,8 @@ const SignIn = () => {
             <p className='py-6'>
               Sign in with Twitter below, Mind you, Your Twitter username will
               be your link <br />
-              <br /> Let's make you a profile that shows how bullish you are in
-              Web 3, WAGMI
+              <br /> Let&#39;s make you a profile that shows how bullish you are
+              in Web 3, WAGMI
             </p>
             <div className='form-control mt-4'>
               <button
