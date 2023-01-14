@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Router from 'next/router';
+import { useAuth } from '../context/AuthContext';
 
 const SignIn = () => {
+  const { user, signIn } = useAuth();
+
+  useEffect(() => {
+    if (
+      user &&
+      user.reloadUserInfo.screenName !== undefined &&
+      user.reloadUserInfo.screenName !== ''
+    ) {
+      Router.push(`/edit/${user.reloadUserInfo.screenName}`);
+    }
+  }, [user]);
+
   return (
     <div className='hero min-h-screen bg-base-200'>
       <div className='hero-content w-96 text-center'>
@@ -14,7 +28,10 @@ const SignIn = () => {
               Web 3, WAGMI
             </p>
             <div className='form-control mt-4'>
-              <button className='btn hover:bg-slate-300 bg-gray-50 text-black normal-case'>
+              <button
+                className='btn hover:bg-slate-300 bg-gray-50 text-black normal-case'
+                onClick={() => signIn()}
+              >
                 <svg
                   viewBox='0 0 24 24'
                   className='mr-3 h-6 w-6 text-blue-400'

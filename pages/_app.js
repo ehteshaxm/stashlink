@@ -15,6 +15,7 @@ import {
   optimism,
   polygon,
 } from 'wagmi/chains';
+import { AuthContextProvider } from '../context/AuthContext';
 
 // // 1. Get projectID at https://cloud.walletconnect.com
 // if (!process.env.NEXT_PUBLIC_PROJECT_ID) {
@@ -38,12 +39,12 @@ export const ethereumClient = new EthereumClient(wagmiClient, chains);
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <AuthContextProvider>
       <WagmiConfig client={wagmiClient}>
         <Component {...pageProps} />
       </WagmiConfig>
 
       <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
-    </>
+    </AuthContextProvider>
   );
 }
