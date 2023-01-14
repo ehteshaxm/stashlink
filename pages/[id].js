@@ -80,7 +80,6 @@ const Profile = () => {
     return url.match(/\.(jpeg|jpg|gif|png)$/) != null;
   }
 
-  const str = 'BFbSLHJosaxoEyKoxjXP92jSzJrcHUt9uZzbXBWpZvMf';
   return (
     <div className='min-h-screen bg-primary-black pt-14 overflow-hidden'>
       <div className='max-w-sm mx-auto relative' style={{ minHeight: '95vh' }}>

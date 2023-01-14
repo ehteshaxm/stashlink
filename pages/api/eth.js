@@ -8,7 +8,7 @@ export default function handler(req, res) {
     params: { chain: 'ethereum', page_size: '50', include: 'metadata' },
     headers: {
       accept: 'application/json',
-      Authorization: 'd7fde271-9944-4328-b120-b3e6552a6104',
+      Authorization: process.env.NFT_API_KEY,
     },
   };
 
