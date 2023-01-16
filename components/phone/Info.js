@@ -16,7 +16,7 @@ const Info = ({ image, profileNFT, userName }) => {
               src={
                 image
                   ? URL.createObjectURL(image)
-                  : 'https://placeimg.com/192/192/people'
+                  : 'https://images.unsplash.com/photo-1600456899121-68eda5705257?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80'
               }
             />
           </div>

@@ -82,7 +82,7 @@ const Profile = () => {
 
   return (
     <div className='min-h-screen bg-primary-black pt-14 overflow-hidden'>
-      <div className='max-w-sm mx-auto relative' style={{ minHeight: '95vh' }}>
+      <div className='max-w-sm mx-auto relative flex flex-col justify-between items-center'>
         <AnimatePresence
           initial={false}
           exitBeforeEnter={true}
@@ -138,8 +138,8 @@ const Profile = () => {
                         {nftDetails.contractAddress.substring(0, 7) +
                           '....' +
                           nftDetails.contractAddress.substring(
-                            str.length - 7,
-                            str.length
+                            nftDetails.contractAddress.length - 7,
+                            nftDetails.contractAddress.length
                           )}
                       </p>
                     </div>
@@ -165,7 +165,7 @@ const Profile = () => {
         <div className='absolute -top-20 right-0 h-60 w-52 bg-indigo-500 blur-3xl'></div>
         <div className='absolute -top-20 left-20 h-40 w-44 bg-pink-400 blur-3xl'></div> */}
         <div className='absolute -top-20 w-full h-40 bg-stone-400 blur-3xl'></div>
-        <div className='w-full text-center pt-10'>
+        <div className='w-full text-center'>
           <div className='w-full flex justify-center items-center'>
             {data.pfpNft.contract_address ? (
               <div
@@ -223,7 +223,7 @@ const Profile = () => {
           </div>
         </div>
         {/* <div className='divider'></div> */}
-        <div className='w-full px-8 mt-20'>
+        <div className='w-full px-7 mt-20 mb-10'>
           <div className='flex justify-between flex-wrap px-1'>
             {data.nfts[0] ? (
               data.nfts.map((item, index) => {
@@ -254,7 +254,7 @@ const Profile = () => {
             )}
           </div>
         </div>
-        <div className='text-3xl w-full font-semibold text-white pt-16 pb-20 text-center absolute bottom-0'>
+        <div className='text-3xl w-full font-semibold text-white pt-16 pb-20 text-center bottom-0'>
           Stash ᵍᵐ
         </div>
       </div>
