@@ -224,7 +224,7 @@ const Profile = () => {
         </div>
         {/* <div className='divider'></div> */}
         <div className='w-full flex justify-center items-start mt-20 mb-10'>
-          <div className='flex flex-wrap px-1'>
+          <div className='flex flex-wrap'>
             {data.nfts[0] ? (
               data.nfts.map((item, index) => {
                 if (checkURL(item.metadata.image)) {
@@ -248,8 +248,8 @@ const Profile = () => {
               })
             ) : (
               <div className='flex w-full justify-between items-center'>
-                <div className='w-32 h-32 bg-gray-200 opacity-5 animate-pulse rounded-md dark:bg-gray-700'></div>
-                <div className='w-32 h-32 bg-gray-200 opacity-5 animate-pulse rounded-md dark:bg-gray-700'></div>
+                <div className='w-32 h-32 m-2 bg-gray-200 opacity-5 animate-pulse rounded-md dark:bg-gray-700'></div>
+                <div className='w-32 h-32 m-2 bg-gray-200 opacity-5 animate-pulse rounded-md dark:bg-gray-700'></div>
               </div>
             )}
           </div>
