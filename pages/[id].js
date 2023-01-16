@@ -223,8 +223,8 @@ const Profile = () => {
           </div>
         </div>
         {/* <div className='divider'></div> */}
-        <div className='w-full px-7 mt-20 mb-10'>
-          <div className='flex justify-between flex-wrap px-1'>
+        <div className='w-full flex justify-center items-start mt-20 mb-10'>
+          <div className='flex flex-wrap px-1'>
             {data.nfts[0] ? (
               data.nfts.map((item, index) => {
                 if (checkURL(item.metadata.image)) {
