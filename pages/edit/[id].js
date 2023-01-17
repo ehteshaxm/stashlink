@@ -13,7 +13,7 @@ import {
   getDownloadURL,
   deleteObject,
 } from 'firebase/storage';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import Router from 'next/router';
 
 const Edit = () => {
@@ -54,6 +54,23 @@ const Edit = () => {
     setLoading(true);
     const imageRef = ref(storage, user.reloadUserInfo.screenName);
 
+    let isVerified = false;
+
+    try {
+      const docRef = doc(db, 'users', user.reloadUserInfo.screenName);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        // console.log('Document data:', docSnap.data());
+        const data = docSnap.data();
+        isVerified = data.isVerified;
+      } else {
+        // doc.data() will be undefined in this case
+        console.log('No such document!');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
     if (image) {
       console.log('submitting image');
       // check if one already exists
@@ -72,7 +89,7 @@ const Edit = () => {
                       .then((url) => {
                         // Upload data to Firestore
                         const data = {
-                          isVerified: false,
+                          isVerified: isVerified,
                           nfts: selectedNFTs,
                           pfpImage: url,
                           pfpNft: profileNFT,
@@ -109,7 +126,7 @@ const Edit = () => {
                   .then((url) => {
                     // Upload data to Firestore
                     const data = {
-                      isVerified: false,
+                      isVerified: isVerified,
                       nfts: selectedNFTs,
                       pfpImage: url,
                       pfpNft: profileNFT,
@@ -142,7 +159,7 @@ const Edit = () => {
                 console.log('Deleted for NFT pfp');
                 // Upload data to Firestore
                 const data = {
-                  isVerified: false,
+                  isVerified: isVerified,
                   nfts: selectedNFTs,
                   pfpImage: '',
                   pfpNft: profileNFT,
@@ -163,7 +180,7 @@ const Edit = () => {
         .catch((error) => {
           console.log(error);
           const data = {
-            isVerified: false,
+            isVerified: isVerified,
             nfts: selectedNFTs,
             pfpImage: '',
             pfpNft: profileNFT,

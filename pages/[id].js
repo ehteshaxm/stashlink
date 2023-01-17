@@ -81,7 +81,7 @@ const Profile = () => {
   }
 
   return (
-    <div className='min-h-screen bg-primary-black pt-14 overflow-hidden'>
+    <div className='min-h-screen bg-primary-black pt-5 overflow-hidden'>
       <div className='max-w-sm mx-auto relative flex flex-col justify-between items-center'>
         <AnimatePresence
           initial={false}
@@ -254,7 +254,7 @@ const Profile = () => {
             )}
           </div>
         </div>
-        <div className='text-3xl w-full font-semibold text-white pt-16 pb-20 text-center bottom-0'>
+        <div className='text-3xl w-full font-semibold text-white pt-16 pb-16 text-center bottom-0'>
           Stash ᵍᵐ
         </div>
       </div>
